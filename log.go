@@ -30,7 +30,7 @@ type Logger struct {
 	// Include the message level in logger output
 	IncludeLevel bool
 
-	// Timeout for writing log messages to a channel
+	// Timeout for writing log messages to a channel. Defaults to 1 second.
 	Timeout time.Duration
 
 	// Contains the number of messages that failed to send on channels due to
