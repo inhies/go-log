@@ -49,7 +49,8 @@ type Logger struct {
 	log.Logger
 }
 
-// Message represents a single log message
+// Message represents a single log message that will be sent on a channel
+// registered with the Split() method.
 type Message struct {
 	Level     LogLevel  // The level of the message
 	Message   string    // The content of the message, represented as a string
