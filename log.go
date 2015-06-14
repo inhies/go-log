@@ -345,3 +345,161 @@ func (logger *Logger) Panicf(format string, v ...interface{}) {
 	logger.prefixOutput(EMERG, s)
 	panic(s)
 }
+
+func Prefix() string {
+	return logger.Prefix()
+}
+func SetPrefix(prefix string) {
+	logger.SetPrefix(prefix)
+}
+
+func SetFlags(flag int) {
+	logger.SetFlags(flag)
+}
+
+func Flags() int {
+	return logger.Flags()
+}
+
+////////
+
+var logger = &Logger{DEBUG, true, 1 * time.Second, 0, nil, nil, *log.New(os.Stdout, "", 0)}
+
+func Print(v ...interface{}) {
+	logger.prefixOutput(DEBUG, fmt.Sprint(v...))
+}
+func Println(v ...interface{}) {
+	logger.prefixOutput(DEBUG, fmt.Sprintln(v...))
+}
+func Printf(format string, v ...interface{}) {
+	logger.prefixOutput(DEBUG, fmt.Sprintf(format, v...))
+}
+
+func Debug(v ...interface{}) {
+	logger.prefixOutput(DEBUG, fmt.Sprint(v...))
+}
+
+func Info(v ...interface{}) {
+	logger.prefixOutput(INFO, fmt.Sprint(v...))
+}
+
+func Notice(v ...interface{}) {
+	logger.prefixOutput(NOTICE, fmt.Sprint(v...))
+}
+
+func Warning(v ...interface{}) {
+	logger.prefixOutput(WARNING, fmt.Sprint(v...))
+}
+
+func Err(v ...interface{}) {
+	logger.prefixOutput(ERR, fmt.Sprint(v...))
+}
+
+func Crit(v ...interface{}) {
+	logger.prefixOutput(CRIT, fmt.Sprint(v...))
+}
+
+func Alert(v ...interface{}) {
+	logger.prefixOutput(ALERT, fmt.Sprint(v...))
+}
+
+func Emerg(v ...interface{}) {
+	logger.prefixOutput(EMERG, fmt.Sprint(v...))
+}
+
+func Fatal(v ...interface{}) {
+	logger.prefixOutput(EMERG, fmt.Sprint(v...))
+	os.Exit(1)
+}
+
+func Panic(v ...interface{}) {
+	s := fmt.Sprint(v...)
+	logger.prefixOutput(EMERG, s)
+	panic(s)
+}
+
+func Debugln(v ...interface{}) {
+	logger.prefixOutput(DEBUG, fmt.Sprintln(v...))
+}
+
+func Infoln(v ...interface{}) {
+	logger.prefixOutput(INFO, fmt.Sprintln(v...))
+}
+
+func Noticeln(v ...interface{}) {
+	logger.prefixOutput(NOTICE, fmt.Sprintln(v...))
+}
+
+func Warningln(v ...interface{}) {
+	logger.prefixOutput(WARNING, fmt.Sprintln(v...))
+}
+
+func Errln(v ...interface{}) {
+	logger.prefixOutput(ERR, fmt.Sprintln(v...))
+}
+
+func Critln(v ...interface{}) {
+	logger.prefixOutput(CRIT, fmt.Sprintln(v...))
+}
+
+func Alertln(v ...interface{}) {
+	logger.prefixOutput(ALERT, fmt.Sprintln(v...))
+}
+
+func Emergln(v ...interface{}) {
+	logger.prefixOutput(EMERG, fmt.Sprintln(v...))
+}
+
+func Fatalln(v ...interface{}) {
+	logger.prefixOutput(EMERG, fmt.Sprintln(v...))
+	os.Exit(1)
+}
+
+func Panicln(v ...interface{}) {
+	s := fmt.Sprintln(v...)
+	logger.prefixOutput(EMERG, s)
+	panic(s)
+}
+
+func Debugf(format string, v ...interface{}) {
+	logger.prefixOutput(DEBUG, fmt.Sprintf(format, v...))
+}
+
+func Infof(format string, v ...interface{}) {
+	logger.prefixOutput(INFO, fmt.Sprintf(format, v...))
+}
+
+func Noticef(format string, v ...interface{}) {
+	logger.prefixOutput(NOTICE, fmt.Sprintf(format, v...))
+}
+
+func Warningf(format string, v ...interface{}) {
+	logger.prefixOutput(WARNING, fmt.Sprintf(format, v...))
+}
+
+func Errf(format string, v ...interface{}) {
+	logger.prefixOutput(ERR, fmt.Sprintf(format, v...))
+}
+
+func Critf(format string, v ...interface{}) {
+	logger.prefixOutput(CRIT, fmt.Sprintf(format, v...))
+}
+
+func Alertf(format string, v ...interface{}) {
+	logger.prefixOutput(ALERT, fmt.Sprintf(format, v...))
+}
+
+func Emergf(format string, v ...interface{}) {
+	logger.prefixOutput(EMERG, fmt.Sprintf(format, v...))
+}
+
+func Fatalf(format string, v ...interface{}) {
+	logger.prefixOutput(EMERG, fmt.Sprintf(format, v...))
+	os.Exit(1)
+}
+
+func Panicf(format string, v ...interface{}) {
+	s := fmt.Sprintf(format, v...)
+	logger.prefixOutput(EMERG, s)
+	panic(s)
+}
